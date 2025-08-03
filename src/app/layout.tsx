@@ -1,5 +1,5 @@
 import React from 'react';
-import '../globals.css';
+import './globals.css';
 import { NotesProvider } from '../contexts/NotesContext';
 import Header from '../components/ui/Header';
 import Footer from '../components/ui/Footer';

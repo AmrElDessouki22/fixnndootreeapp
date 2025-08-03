@@ -2,13 +2,25 @@
 
 import React from 'react';
 
-const ErrorBoundary: React.FC<{ error: Error }> = ({ error }) => {
-  return (
-    <div role="alert">
-      <p>Something went wrong:</p>
-      <pre>{error.message}</pre>
-    </div>
-  );
+const ErrorBoundary: React.FC = ({ children }) => {
+  const [hasError, setHasError] = React.useState(false);
+
+  const handleError = () => {
+    setHasError(true);
+  };
+
+  React.useEffect(() => {
+    // Error listener or similar setup
+    return () => {
+      // Cleanup if needed
+    };
+  }, []);
+
+  if (hasError) {
+    return <div>Something went wrong.</div>;
+  }
+
+  return <>{children}</>;
 };
 
 export default ErrorBoundary;
